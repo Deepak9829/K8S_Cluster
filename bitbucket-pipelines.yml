@@ -16,6 +16,6 @@ pipelines:
               - terraform validate
               - terraform plan
               - ansible --version
-              #- terraform apply --auto-approve
+              - terraform apply --auto-approve
               #- terraform destroy --auto-approve
   
