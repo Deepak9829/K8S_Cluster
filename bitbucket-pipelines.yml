@@ -7,7 +7,7 @@ pipelines:
             name: Test
             script:
               - ls -la
-              - cd EC2
+              - chdir EC2
               - export AWS_ACCESS_KEY_ID=$ACCESS_KEY
               - export AWS_SECRET_ACCESS_KEY=$SECRET_KEY
               - pwd
@@ -15,6 +15,7 @@ pipelines:
               - terraform init
               - terraform validate
               - terraform plan
+              - ansible --version
               #- terraform apply --auto-approve
               #- terraform destroy --auto-approve
   
