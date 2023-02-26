@@ -1,4 +1,4 @@
-image: hashicorp/terraform
+image: cytopia/ansible-tf
 
 pipelines:
   default:
