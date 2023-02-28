@@ -1,4 +1,4 @@
-image: deepakdocker25/terraform-ansible
+image: deepakdocker25/terraform-ansible:v1
 
 
 pipelines:
@@ -21,7 +21,7 @@ pipelines:
               - chmod 400 aws_key.pem
               - openssl rsa -in aws_key.pem -check
               - cat aws_key.pem
-              - ssh  -o StrictHostKeyChecking=no -i aws_key.pem ec2-user@13.235.50.132 "ls -la" 
+              - ssh  -o StrictHostKeyChecking=no -i testvm.pem ec2-user@13.235.50.132 "ls -la" 
               #- terraform apply --auto-approve
               #- terraform destroy --auto-approve
   
