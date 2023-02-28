@@ -1,4 +1,4 @@
-image: deepakdocker25/terraform-ansible:v1
+image: deepakdocker25/terraform-ansible:v2
 
 
 pipelines:
