@@ -17,7 +17,7 @@ pipelines:
               - terraform validate
               - terraform plan
               - ansible --version
-              - ssh  -o StrictHostKeyChecking=no -i testvm.pem ec2-user@13.235.50.132 "ls -la" 
+              - ssh  -o StrictHostKeyChecking=no -i /root/testvm.pem ec2-user@13.235.50.132 "ls -la" 
               #- terraform apply --auto-approve
               #- terraform destroy --auto-approve
   
