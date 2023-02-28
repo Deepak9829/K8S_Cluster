@@ -41,7 +41,7 @@ variable "inventory_file_path" {
 
 
 variable "aws_private_key_path" {
-  default = "/home/deepaksaini/Downloads/testvm.pem"
+  default = "/root/testvm.pem"
 }
 
 
