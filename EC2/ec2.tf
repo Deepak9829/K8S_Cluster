@@ -130,7 +130,7 @@ resource "local_file" "ipaddr" {
 resource "null_resource" "nulllocal3" {
   depends_on = [local_file.ipaddr]
   provisioner "local-exec" {
-    command = "ansible-playbook ../Ansible-Playbook/cluster.yml -i ../Ansible-Playbook/k8s.ini"
+    command = "ansible-playbook /opt/atlassian/pipelines/agent/build/Ansible-Playbook/cluster.yml -i /opt/atlassian/pipelines/agent/build/Ansible-Playbook/k8s.ini"
   }
 
 }
