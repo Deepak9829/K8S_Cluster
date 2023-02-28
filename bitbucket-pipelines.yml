@@ -19,7 +19,7 @@ pipelines:
               - echo $aws_key > aws_key.pem
               - chmod 700 aws_key.pem
               - cat aws_key.pem
-              - sudo ssh  -o StrictHostKeyChecking=no -i aws_key.pem ec2-user@13.235.50.132 "ls -la" 
+              - ssh  -o StrictHostKeyChecking=no -i aws_key.pem ec2-user@13.235.50.132 "ls -la" 
               #- terraform apply --auto-approve
               #- terraform destroy --auto-approve
   
