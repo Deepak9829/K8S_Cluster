@@ -17,10 +17,6 @@ pipelines:
               - terraform validate
               - terraform plan
               - ansible --version
-              - echo $aws_key > aws_key.pem
-              - chmod 400 aws_key.pem
-              - openssl rsa -in aws_key.pem -check
-              - cat aws_key.pem
               - ssh  -o StrictHostKeyChecking=no -i testvm.pem ec2-user@13.235.50.132 "ls -la" 
               #- terraform apply --auto-approve
               #- terraform destroy --auto-approve
