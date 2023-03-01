@@ -18,3 +18,4 @@ pipelines:
               #- terraform apply --auto-approve
               - terraform destroy --auto-approve
   
+/opt/atlassian/pipelines/agent/build/Ansible-Playbook/webapp/info.py

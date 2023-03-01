@@ -182,12 +182,12 @@
     dest: "/var/www/html"
     src: "{{ item }}"
   with_fileglob:
-    - /home/deepaksaini/K8S_MultiNodeCluster/Ansible-Playbook/webapp/*
+    - /opt/atlassian/pipelines/agent/build/Ansible-Playbook/webapp/*
 
 - name: "Copying the api file" 
   copy:
     dest: "/var/www/cgi-bin/"
-    src: "/home/deepaksaini/K8S_MultiNodeCluster/Ansible-Playbook/webapp/info.py"
+    src: "/opt/atlassian/pipelines/agent/build/Ansible-Playbook/webapp/info.py"
 
 
 - name: Give the sudo power to apache user 
