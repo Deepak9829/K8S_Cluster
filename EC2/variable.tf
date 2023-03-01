@@ -36,7 +36,7 @@ variable "master_instance_type" {
 
 
 variable "inventory_file_path" {
-  default = "/home/deepaksaini/K8S_MultiNodeCluster/Ansible-Playbook/k8s.ini"
+  default = "/opt/atlassian/pipelines/agent/build/Ansible-Playbook/k8s.ini"
 }
 
 
