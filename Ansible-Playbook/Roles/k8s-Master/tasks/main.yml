@@ -18,9 +18,9 @@
   yum_repository:
       name: kubernetes
       description: kubernetes repo
-      baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+      baseurl: "{{ k8s_yum_repo }}"
       enabled: 1
-      gpgkey: https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+      gpgkey: "{{ k8s_yum_repo_gpg_key }}"
   register: a
   changed_when: false
 
@@ -75,7 +75,7 @@
 
 - name: Configure Master or initialize master node
   shell:
-       cmd: "kubeadm init --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors=NumCPU --ignore-preflight-errors=Mem --node-name=master"
+       cmd: "kubeadm init --pod-network-cidr='{{ pod_network_cidr }}' --ignore-preflight-errors=NumCPU --ignore-preflight-errors=Mem --node-name=master"
 
 
 - name: Creating .kube Directory
@@ -90,7 +90,7 @@
   shell: "chown $(id -u):$(id -g) $HOME/.kube/config"
 
 - name: Flanel to up the cluster
-  command: "kubectl apply  -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml"
+  command: "kubectl apply  -f '{{ flanel_url }}'"
 
 - name: Install OpenJDK
   shell: "sudo amazon-linux-extras install java-openjdk11 -y"
@@ -145,12 +145,12 @@
 #  ignore_errors: yes
 
 - name: Helm Download
-  shell: "wget https://get.helm.sh/helm-v3.4.1-linux-amd64.tar.gz"
+  shell: "wget '{{ helm_installer_pkg }}'"
   register: down
   ignore_errors: yes
 
 - name: Helm Install
-  shell: "tar xvf helm-v3.4.1-linux-amd64.tar.gz"
+  shell: "tar xvf '{{ helm_extracted_pkg }}'"
   register: install
   ignore_errors: yes
 
@@ -182,12 +182,12 @@
     dest: "/var/www/html"
     src: "{{ item }}"
   with_fileglob:
-    - /opt/atlassian/pipelines/agent/build/Ansible-Playbook/webapp/*
+    - "{{ webapp_path }}"
 
 - name: "Copying the api file" 
   copy:
     dest: "/var/www/cgi-bin/"
-    src: "/opt/atlassian/pipelines/agent/build/Ansible-Playbook/webapp/info.py"
+    src: "{{ api_file_path }}"
 
 
 - name: Give the sudo power to apache user 

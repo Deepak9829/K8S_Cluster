@@ -1,2 +1,10 @@
 ---
 # vars file for k8s-Master
+webapp_path: /opt/atlassian/pipelines/agent/build/Ansible-Playbook/webapp/*
+api_file_path: /opt/atlassian/pipelines/agent/build/Ansible-Playbook/webapp/info.py
+helm_installer_pkg: https://get.helm.sh/helm-v3.4.1-linux-amd64.tar.gz
+helm_extracted_pkg: helm-v3.4.1-linux-amd64.tar.gz
+k8s_yum_repo: https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+k8s_yum_repo_gpg_key: https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+pod_network_cidr: 10.244.0.0/16
+flanel_url: https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
