@@ -14,9 +14,9 @@
   yum_repository:
       name: kubernetes
       description: kubernetes repo
-      baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+      baseurl: "{{ k8s_yum_repo }}"
       enabled: 1
-      gpgkey: https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+      gpgkey: "{{ k8s_yum_repo_gpg_key }}"
   register: a
   changed_when: false
 

@@ -1,2 +1,4 @@
 ---
 # vars file for k8s-Slave
+k8s_yum_repo: https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+k8s_yum_repo_gpg_key: https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
